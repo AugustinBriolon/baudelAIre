@@ -16,13 +16,13 @@ export default function Home() {
 
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-start pt-16 md:py-32 bg-white px-4">
+    <main className="flex min-h-screen w-full flex-col items-center justify-start py-16 bg-white px-4">
       <div className="w-full max-w-xl flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-2">
           <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-5xl font-bold text-transparent md:text-7xl">
             baudel<span className="text-blue-500">AI</span>re
           </h1>
-          <p className="text-center text-gray-500 [text-wrap:balance] md:text-xl">Génération de poème grâçe à l&apos;<span className="font-bold">Intelligence Artificielle</span>.</p>
+          <p className="text-center text-gray-500 [text-wrap:balance] md:text-xl">Générateur de poème grâçe à l&apos;<span className="font-bold">Intelligence Artificielle</span>.</p>
         </div>
 
         <div className="flex flex-col items-center gap-4 w-full">
