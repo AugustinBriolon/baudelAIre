@@ -1,4 +1,5 @@
 import { TypeAnimation } from 'react-type-animation';
+import { toast } from 'sonner';
 
 import poemsList from '../app/utils/poemsList';
 
@@ -10,6 +11,7 @@ export function TextAnimation({ output }: { output: string }) {
 
   const copyOutput = () => {
     navigator.clipboard.writeText(output)
+    toast.success('Your Poem has been copy !');
   }
 
   return (
@@ -33,22 +35,24 @@ export function TextAnimation({ output }: { output: string }) {
               repeat={Infinity}
             />
             :
-            <div className='h-full w-full relative'>
+            <div className='h-full w-textContainer'>
               <TypeAnimation
                 sequence={[
                   output
                 ]}
-                speed={50}
+                speed={75}
                 style={{ whiteSpace: 'pre-line' }}
                 wrapper="span"
                 cursor={false}
               />
-              <span className="text-blue-500 font-display text-2xl font-bold absolute right-2 bottom-2" >AI</span>
-              <div className="h-4 w-4 absolute right-0 top-0 text-slate-400 hover:text-slate-600 cursor-pointer" onClick={copyOutput}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-                </svg>
+              <div className='absolute top-0 right-0 h-full p-2 flex flex-col items-center justify-between'>
+                <div className="h-8 w-8 p-2 text-gray-400 hover:text-gray-600 cursor-pointer border border-gray-200 rounded-lg" onClick={copyOutput}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                  </svg>
+                </div>
+                <span className="text-blue-500 font-display text-2xl font-bold" >AI</span>
               </div>
             </div>
         }
