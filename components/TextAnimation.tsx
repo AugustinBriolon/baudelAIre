@@ -16,7 +16,7 @@ export function TextAnimation({ output }: { output: string }) {
 
   return (
     <div className="h-fit mx-auto w-full max-w-xl relative">
-      <div className='w-full min-h-96 max-h-fit p-4 resize-none rounded-2xl border border-gray-200 bg-white text-black'>
+      <div className='w-full min-h-96 max-h-fit p-4 resize-none rounded-lg border border-gray-200 bg-white text-black'>
         {
           output.length === 0 ?
             <TypeAnimation

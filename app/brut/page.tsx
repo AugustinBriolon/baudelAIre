@@ -87,7 +87,7 @@ export default function Home() {
             type={"text"}
             onChange={handleChange}
             className={
-              "border border-purple-500 py-2 px-4 rounded-md text-black"
+              "border border-purple-500 py-2 px-4 rounded-lg text-black"
             }
             placeholder={"Type here..."}
             autoComplete={"off"}
@@ -96,7 +96,7 @@ export default function Home() {
             <button
               type={"submit"}
               className={
-                "px-2 py-1 bg-blue-400 rounded-md text-white disabled:bg-blue-300 hover:bg-blue-500 disabled:cursor-not-allowed"
+                "px-2 py-1 bg-blue-400 rounded-lg text-white disabled:bg-blue-300 hover:bg-blue-500 disabled:cursor-not-allowed"
               }
             >
               Submit
@@ -105,7 +105,7 @@ export default function Home() {
         </form>
         <div
           className={
-            "h-48 mt-4 w-full p-4 border border-purple-500 rounded-md overflow-auto"
+            "h-48 mt-4 w-full p-4 border border-purple-500 rounded-lg overflow-auto"
           }
         >
           {response ? (
