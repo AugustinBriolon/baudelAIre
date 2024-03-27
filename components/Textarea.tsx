@@ -15,8 +15,6 @@ export function Textarea(): JSX.Element {
   useEffect(() => {
     const poem = poems[currentPoemIndex];
     const lines = poem.content.split('\n').length;
-    console.log(lines);
-
     setRowsNumber(lines + 5);
   }, [currentPoemIndex, poems]);
 
