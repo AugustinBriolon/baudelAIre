@@ -9,16 +9,16 @@ const apiKey = process.env.MISTRAL_API_KEY;
 const client = new MistralClient(apiKey);
 
 export async function POST(req: NextRequest) {
-  const { userInput, systemInput } = await req.json();
-  console.log({ userInput, systemInput });
+  const { systemInput, prompt } = await req.json();
+  console.log({ systemInput, prompt });
 
-  if (!userInput || !systemInput) {
+  if (!prompt || !systemInput) {
     return new Response("Missing userInput or systemInput", { status: 400 });
   }
 
   const userMsg = {
     role: "user",
-    content: userInput,
+    content: prompt,
   };
 
   const systemMsg = {
