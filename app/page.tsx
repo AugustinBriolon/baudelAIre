@@ -125,7 +125,6 @@ export default function Home() {
           with <span>&#128153;</span>
         </p>
       </div>
-      <img src="/images/icon.png" alt="baudelAIre Icon" className="hidden opacity-0 " />
     </main>
   )
 }
