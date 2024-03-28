@@ -46,7 +46,7 @@ Vers: Le vers est la ligne de base d'un poème. Sa longueur peut varier considé
 
   const userMsg = {
     role: "user",
-    content: learnIA + prompt + "Ne donne pas d'explications supplémetaire à la fin, donne l'auteur et ensuite arrête de parler."
+    content: learnIA + prompt + "Fais en sorte que mon poeme rime, que ce soit les mêmes sons à la fin des vers ! Ne donne pas d'explications supplémetaire à la fin, donne l'auteur et ensuite arrête de parler."
   };
 
   const systemMsg = {
