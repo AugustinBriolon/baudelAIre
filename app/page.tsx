@@ -10,26 +10,26 @@ import Select from "@/components/Select"
 import { rimeType, lenght, versType, inspiration, langLevel, temperatureType } from "./utils/optionData"
 
 export default function Home() {
-	const [rules, setRules] = useState({
-		langLevel: "",
-		inspiration: {name: "", characteristics: ""},
-		rimeType: {name: "", characteristics: ""},
-		lenght: {name: "", characteristics: ""},
-		versType: {name: "", characteristics: ""},
+  const [rules, setRules] = useState({
+    langLevel: "",
+    inspiration: { name: "", characteristics: "" },
+    rimeType: { name: "", characteristics: "" },
+    lenght: { name: "", characteristics: "" },
+    versType: { name: "", characteristics: "" },
     temperatureType: "1"
-	})
+  })
 
-	const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
+  const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
 
-	const systemeInputInspiration = rules.inspiration.name && `Tu dois écrire comme si tu étais ${rules.inspiration.name}. ${rules.inspiration.characteristics}. `
+  const systemeInputInspiration = rules.inspiration.name && `Tu dois écrire comme si tu étais ${rules.inspiration.name}. ${rules.inspiration.characteristics}. `
 
-	const systemeInputRimeType = rules.rimeType.name && `Tu dois absolument faire des rimes ${rules.rimeType.name}, ${rules.rimeType.characteristics}. `
+  const systemeInputRimeType = rules.rimeType.name && `Tu dois absolument faire des rimes ${rules.rimeType.name}, ${rules.rimeType.characteristics}. `
 
-	const systemeInputLenght = rules.lenght.name && `Le poème doit être de longueur ${rules.lenght.name}, ${rules.lenght.characteristics}. `
+  const systemeInputLenght = rules.lenght.name && `Le poème doit être de longueur ${rules.lenght.name}, ${rules.lenght.characteristics}. `
 
-	const systemeInputVersType = rules.versType.name && `Le type de vers est de type ${rules.versType.name}, ${rules.versType.characteristics}. `
+  const systemeInputVersType = rules.versType.name && `Le type de vers est de type ${rules.versType.name}, ${rules.versType.characteristics}. `
 
-	const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
+  const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
 
 
 
@@ -65,7 +65,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-start py-16 bg-white px-4">
+    <main className="flex min-h-screen w-full flex-col items-center justify-between py-16 gap-8 bg-white px-4">
       {error && toast.error(error.message)}
       <div className="w-full max-w-xl flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-2">
@@ -114,6 +114,16 @@ export default function Home() {
             )
           }
         </div>
+      </div>
+      <div className="w-full flex items-center justify-center">
+        <p className="text-xs">
+          Made by
+          <a href="https://august1.dev/" target="_blank" className="text-blue-500 hover:text-blue-700 font-bold"> @Augustin</a>,
+          <a href="https://github.com/N0rooo" target="_blank" className="text-blue-500 hover:text-blue-700 font-bold"> @Nicolas </a>
+          and
+          <a href="" className="text-blue-500 hover:text-blue-700 font-bold"> @Thomas </a>
+          with <span>&#128153;</span>
+        </p>
       </div>
     </main>
   )
