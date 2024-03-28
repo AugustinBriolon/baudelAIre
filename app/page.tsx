@@ -16,7 +16,7 @@ export default function Home() {
 		rimeType: {name: "", characteristics: ""},
 		lenght: {name: "", characteristics: ""},
 		versType: {name: "", characteristics: ""},
-    temperatureType: ""
+    temperatureType: "1"
 	})
 
 	const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
