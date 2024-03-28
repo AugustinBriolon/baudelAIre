@@ -60,7 +60,7 @@ export default function Home() {
       rimeType: { name: "", characteristics: "" },
       lenght: { name: "", characteristics: "" },
       versType: { name: "", characteristics: "" },
-      temperatureType: ""
+      temperatureType: "1"
     })
   }
 
