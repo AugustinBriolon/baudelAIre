@@ -9,7 +9,7 @@ const apiKey = process.env.MISTRAL_API_KEY;
 const client = new MistralClient(apiKey);
 
 export async function POST(req: NextRequest) {
-  const { systemInput, prompt, rules } = await req.json();
+  const { systemInput, prompt, rules, temperature } = await req.json();
 
   if (!prompt || !systemInput) {
     return new Response("Missing userInput or systemInput", { status: 400 });
@@ -57,7 +57,7 @@ Vers: Le vers est la ligne de base d'un poème. Sa longueur peut varier considé
   const chatResponse = client.chatStream({
     model: model,
     messages: [systemMsg, userMsg],
-    temperature: 1,
+    temperature: temperature,
   });
   const stream = MistralStream(chatResponse);
 

@@ -7,7 +7,7 @@ import { useCompletion } from "ai/react"
 import { TextAnimation } from "@/components/TextAnimation"
 import Select from "@/components/Select"
 
-import { rimeType, lenght, versType, inspiration, langLevel } from "./utils/optionData"
+import { rimeType, lenght, versType, inspiration, langLevel, temperatureType } from "./utils/optionData"
 
 export default function Home() {
 	const [rules, setRules] = useState({
@@ -16,6 +16,7 @@ export default function Home() {
 		rimeType: {name: "", characteristics: ""},
 		lenght: {name: "", characteristics: ""},
 		versType: {name: "", characteristics: ""},
+    temperatureType: ""
 	})
 
 	const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
@@ -39,6 +40,7 @@ export default function Home() {
 			}${systemeInputRimeType}${systemeInputLangLevel}${systemeInputLenght} ${systemeInputVersType}Répondez uniquement par un poème suivi du nom de l'auteur que vous appellerez "BaudelAIre". Ne rajoute rien après le nom de l'auteur, aucune explication ni rien d'autre. Ne numérote pas les vers ni les lignes ni rien. Répondez en français, sauf indication contraire. Ne donnez rien d'autre que le poème et l'auteur. Inventez un titre pour votre poème. Suivez la structure suivante : d'abord le titre du poème, retour à la ligne, puis le poème, retour à la ligne et enfin l'auteur, qui est "BaudelAIre" et non Charles Baudelaire. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème. Ne donne pas d'explications supplémetaire à la fin, donne l'auteur et ensuite arrête de parler.
 `,
 			rules: systemeInputRulesArray.join(""),
+      temperature: rules.temperatureType
 		},
 	})
 
@@ -79,6 +81,7 @@ export default function Home() {
 							<Select label="Type de rime" data={rimeType} setData={updateRules} name="rimeType" disabled />
 							<Select label="Longueur" data={lenght} setData={updateRules} name="lenght" />
 							<Select label="Type de vers" data={versType} setData={updateRules} name="versType" disabled />
+							<Select label="Température" data={temperatureType} setData={updateRules} name="temperatureType"  />
 						</div>
 					</form>
 
