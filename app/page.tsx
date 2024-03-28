@@ -43,7 +43,7 @@ export default function Home() {
           <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-5xl font-bold text-transparent md:text-7xl">
             baudel<span className="text-blue-500">AI</span>re<span className="text-blue-500">.</span>
           </h1>
-          <p className="text-center text-gray-500 [text-wrap:balance] md:text-xl">Générateur de poème grâce à l&apos;<span className="font-bold">Intelligence Artificielle</span>.</p>
+          <p className="text-center text-gray-500 [text-wrap:balance] md:text-xl">Quand <span className="font-bold">l&apos;IA muse</span> sur les vers, <span className="font-bold">baudelAIre compose</span>.</p>
         </div>
 
         <div className="flex flex-col items-center gap-8 w-full">
