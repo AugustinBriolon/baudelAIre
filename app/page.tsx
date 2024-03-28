@@ -119,9 +119,9 @@ export default function Home() {
         <p className="text-xs">
           Made by
           <a href="https://august1.dev/" target="_blank" className="text-blue-500 hover:text-blue-700 font-bold"> @Augustin</a>,
-          <a href="https://github.com/N0rooo" target="_blank" className="text-blue-500 hover:text-blue-700 font-bold"> @Nicolas </a>
+          <a href="https://github.com/Nicoalz" target="_blank" className="text-blue-500 hover:text-blue-700 font-bold"> @Nicolas </a>
           and
-          <a href="" className="text-blue-500 hover:text-blue-700 font-bold"> @Thomas </a>
+          <a href="https://github.com/N0rooo" className="text-blue-500 hover:text-blue-700 font-bold"> @Thomas </a>
           with <span>&#128153;</span>
         </p>
       </div>
