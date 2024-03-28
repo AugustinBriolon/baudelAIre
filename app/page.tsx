@@ -5,6 +5,8 @@ import { TextAnimation } from "@/components/TextAnimation"
 import Select from "@/components/Select"
 import { useCompletion } from "ai/react"
 
+import { langLevel, inspiration, rimeType, lenght, versType } from "./utils/optionData"
+
 export default function Home() {
 	const { completion, input, handleInputChange, stop, isLoading, handleSubmit, error } = useCompletion({
 		api: "/api/generate",
@@ -14,6 +16,21 @@ export default function Home() {
 		},
 	})
 
+  const [rules, setRules] = useState({
+    langLevel: "",
+    inspiration: "",
+    rimeType: "",
+    lenght: "",
+    versType: ""
+  })
+
+  const updateRules = (newRules: any) => {
+    setRules(prevRules => ({
+      ...prevRules,
+      ...newRules
+    }))
+  }
+    
 	const [langLevel, setLangLevel] = useState(["Soutenu", "Courant", "Familier", "Argot", "Vulgaire"])
 
 	const [inspiration, setInspiration] = useState(["Charles Baudelaire", "Victor Hugo", "Arthur Rimbaud", "Paul Verlaine", "Guillaume Apollinaire", "Alfred de Musset", "Paul Eluard", "Louis Aragon", "André Breton", "Robert Desnos", "Jacques Prévert"])
@@ -45,11 +62,13 @@ export default function Home() {
 								Stop
 							</button>
 						</div>
-						<div className="w-full flex items-center justify-between gap-2 ">
-							<Select label="Niveau de langue" data={langLevel} setData={setLangLevel} />
-							<Select label="Inspiration" data={inspiration} setData={setInspiration} />
-							<Select label="à trouver" data={[]} setData={() => {}} />
-						</div>
+						<div className="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
+              <Select label="Niveau de langue" data={langLevel} setData={updateRules} name="langLevel" />
+              <Select label="Inspiration" data={inspiration} setData={updateRules} name="inspiration" />
+              <Select label="Type de rime" data={rimeType} setData={updateRules} name="rimeType" />
+              <Select label="Longueur" data={lenght} setData={updateRules} name="lenght" />
+              <Select label="Type de vers" data={versType} setData={updateRules} name="versType" />
+            </div>
 					</form>
 
 					<TextAnimation output={completion} isLoading={isLoading} />
@@ -57,4 +76,5 @@ export default function Home() {
 			</div>
 		</main>
 	)
+
 }
