@@ -1,45 +1,44 @@
 "use client"
 
 import { useState } from "react"
-import { TextAnimation } from "@/components/TextAnimation"
-import Select from "@/components/Select"
+import { toast } from "sonner"
 import { useCompletion } from "ai/react"
 
-import {  rimeType, lenght, versType } from "./utils/optionData"
+import { TextAnimation } from "@/components/TextAnimation"
+import Select from "@/components/Select"
+
+import { rimeType, lenght, versType, inspiration, langLevel } from "./utils/optionData"
 
 export default function Home() {
 	const [rules, setRules] = useState({
 		langLevel: "",
-		inspiration: "",
-		rimeType: "",
-		lenght: "",
-		versType: "",
+		inspiration: {name: "", characteristics: ""},
+		rimeType: {name: "", characteristics: ""},
+		lenght: {name: "", characteristics: ""},
+		versType: {name: "", characteristics: ""},
 	})
 
 	const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
 
-	const systemeInputInspiration = rules.inspiration && `Tu dois écrire comme si tu étais ${rules.inspiration}. `
+	const systemeInputInspiration = rules.inspiration.name && `Tu dois écrire comme si tu étais ${rules.inspiration.name}. ${rules.inspiration.characteristics}. `
 
-	const systemeInputRimeType = rules.rimeType && `Le type de rime doit être des rimes ${rules.rimeType}. `
+	const systemeInputRimeType = rules.rimeType.name && `Tu dois absolument faire des rimes ${rules.rimeType.name}, ${rules.rimeType.characteristics}. `
 
-	const systemeInputLenght = rules.lenght && `Le poème doit être de longueur ${rules.lenght}. `
+	const systemeInputLenght = rules.lenght.name && `Le poème doit être de longueur ${rules.lenght.name}, ${rules.lenght.characteristics}. `
 
-	const systemeInputVersType = rules.versType && `Le type de vers est de type ${rules.versType} `
+	const systemeInputVersType = rules.versType.name && `Le type de vers est de type ${rules.versType.name}, ${rules.versType.characteristics}. `
 
-  const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
+	const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
 
-  
 
 	const { completion, input, handleInputChange, stop, isLoading, handleSubmit, error } = useCompletion({
 		api: "/api/generate",
 		body: {
-			systemInput: `${systemeInputInspiration.length ? systemeInputInspiration : 'Vous êtes un grand poète francais.'}${systemeInputRimeType}${systemeInputLangLevel}${systemeInputLenght} ${systemeInputVersType}Répondez uniquement par un poème suivi du nom de l'auteur que vous appellerez "BaudelAIre". 
-      Répondez en français, sauf indication contraire.
-      Ne donnez rien d'autre que le poème et l'auteur. 
-      Inventez un titre pour votre poème. 
-      Suivez la structure suivante : d'abord le titre du poème, retour à la ligne, puis le poème, retour à la ligne et enfin l'auteur, qui est "BaudelAIre" et non Charles Baudelaire.  
+			systemInput: `${
+				systemeInputInspiration.length ? systemeInputInspiration : "Vous êtes un grand poète francais."
+			}${systemeInputRimeType}${systemeInputLangLevel}${systemeInputLenght} ${systemeInputVersType}Répondez uniquement par un poème suivi du nom de l'auteur que vous appellerez "BaudelAIre". Répondez en français, sauf indication contraire. Ne donnez rien d'autre que le poème et l'auteur. Inventez un titre pour votre poème. Suivez la structure suivante : d'abord le titre du poème, retour à la ligne, puis le poème, retour à la ligne et enfin l'auteur, qui est "BaudelAIre" et non Charles Baudelaire. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème. Ne donne pas d'explications supplémetaire à la fin, donne l'auteur et ensuite arrête de parler.
 `,
-      rules: systemeInputRulesArray.join(""),
+			rules: systemeInputRulesArray.join(""),
 		},
 	})
 
@@ -50,21 +49,16 @@ export default function Home() {
 		}))
 	}
 
-
-	const [langLevel, setLangLevel] = useState(["Soutenu", "Courant", "Familier", "Argot", "Vulgaire"])
-
-	const [inspiration, setInspiration] = useState(["Charles Baudelaire", "Victor Hugo", "Arthur Rimbaud", "Paul Verlaine", "Guillaume Apollinaire", "Alfred de Musset", "Paul Eluard", "Louis Aragon", "André Breton", "Robert Desnos", "Jacques Prévert", "le rappeur JUL"])
-
 	return (
 		<main className="flex min-h-screen w-full flex-col items-center justify-start py-16 bg-white px-4">
-			{error && <div className="fixed top-0 left-0 w-full p-4 text-center bg-red-500 text-white">{error.message}</div>}
+			{error && toast.error(error.message)}
 			<div className="w-full max-w-xl flex flex-col items-center gap-8">
 				<div className="flex flex-col items-center gap-2">
 					<h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-5xl font-bold text-transparent md:text-7xl">
-						baudel<span className="text-blue-500">AI</span>re
+						baudel<span className="text-blue-500">AI</span>re<span className="text-blue-500">.</span>
 					</h1>
 					<p className="text-center text-gray-500 [text-wrap:balance] md:text-xl">
-						Générateur de poème grâçe à l&apos;<span className="font-bold">Intelligence Artificielle</span>.
+						Quand <span className="font-bold">l&apos;IA muse</span> sur les vers, <span className="font-bold">baudelAIre compose</span>.
 					</p>
 				</div>
 
@@ -78,9 +72,6 @@ export default function Home() {
 								</svg>
 								<span className="sr-only">Envoyer</span>
 							</button>
-							<button disabled={!isLoading} type="button" onClick={stop} className="inline-block bg-gray-100 hover:bg-gray-300 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-300 hover:border-transparent rounded m-2 disabled:opacity-50">
-								Stop
-							</button>
 						</div>
 						<div className="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
 							<Select label="Niveau de langue" data={langLevel} setData={updateRules} name="langLevel" />
@@ -91,7 +82,7 @@ export default function Home() {
 						</div>
 					</form>
 
-					<TextAnimation output={completion} isLoading={isLoading} />
+					<TextAnimation output={completion} isLoading={isLoading} stop={stop} />
 				</div>
 			</div>
 		</main>

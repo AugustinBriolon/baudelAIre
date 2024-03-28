@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     siteName: 'baudelAIre',
     images: [
       {
-        url: '/images/ogimage.png',
+        url: '/images/ogimage.webp',
       },
     ],
     locale: 'fr_FR',
   },
-  keywords: ['ia', 'ai', 'poeme', 'intelligence articielle'],
+  keywords: ['ia', 'ai', 'poeme', 'intelligence articielle', 'poésie', 'poète', 'poet', 'poetry', 'poem', 'poème'],
   authors: [{ name: 'Augustin Briolon', url: 'https://august1.dev' }],
   alternates: { canonical: 'https://baudel-ai-re.vercel.app/' },
   robots: 'index, follow',
