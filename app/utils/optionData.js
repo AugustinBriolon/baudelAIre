@@ -3,7 +3,6 @@ export const langLevel = [
   "Courant",
   "Familier",
   "Argot",
-  "Vulgaire"
 ]
 
 export const inspiration = [

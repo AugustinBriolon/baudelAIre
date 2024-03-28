@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
 export default function Select({ label, data, setData, name, disabled }: { label: string; data: string[] | { name: string; characteristics: string }[]; setData: (data: any) => void; name: string; disabled?: boolean }) {
 
