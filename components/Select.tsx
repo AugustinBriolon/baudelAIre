@@ -29,7 +29,14 @@ export default function Select({ label, data, setData, name, disabled }: { label
 
   return (
     <div className="flex flex-col items-start w-full">
-      <label className="block mb-2 text-sm font-medium text-gray-900">{label}</label>
+      <div className="w-full flex items-center justify-between py-2 gap-2">
+        <label className={`block text-sm font-medium ${disabled ? "text-gray-500" : "text-gray-900"}`}>{label}</label>
+        {
+          disabled && (
+            <span className="text-xs text-blue-500">Bientôt</span>
+          )
+        }
+      </div>
       <select className={`${disabled ? "cursor-not-allowed bg-gray-100" : "cursor-pointer bg-white"} appearance-none md:appearance-auto border border-gray-200 text-gray-900 text-sm rounded-lg block w-full p-2.5`} onChange={handleChange} disabled={disabled}>
         <option value={name === "temperatureType" ? "1" : ""}>Sélectionnez une option</option>
         {data.map(renderOption)}
