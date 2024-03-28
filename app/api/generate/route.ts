@@ -10,12 +10,11 @@ const client = new MistralClient(apiKey);
 
 export async function POST(req: NextRequest) {
   const { systemInput, prompt } = await req.json();
-  console.log({ systemInput, prompt });
 
   if (!prompt || !systemInput) {
     return new Response("Missing userInput or systemInput", { status: 400 });
   }
-
+  
   const userMsg = {
     role: "user",
     content: prompt,
@@ -30,7 +29,6 @@ export async function POST(req: NextRequest) {
     model: model,
     messages: [systemMsg, userMsg],
   });
-
   const stream = MistralStream(chatResponse);
 
   return new StreamingTextResponse(stream);
