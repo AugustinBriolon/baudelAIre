@@ -1,37 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="https://baudel-ai-re.vercel.app/">
+    <img alt="baudelAIre logo" src="https://baudel-ai-re.vercel.app/images/icon.png" style="border-radius: 5px; width: 100px; height: 100px;" />
+  </a>
+</p>
 
-## Getting Started
+# baudelAIre.
 
-First, run the development server:
+baudelAIre. est un générateur de poèmes utilisant l'intelligence artificielle pour créer des compositions poétiques uniques et inspirantes.
+
+## Présentation
+
+Ce projet vise à fusionner l'art de la poésie avec les avancées de l'intelligence artificielle pour produire des poèmes captivants et évocateurs. En combinant des techniques de traitement du langage naturel avec des modèles d'apprentissage automatique, baudelAIre. offre une expérience poétique moderne et novatrice.
+
+## Fonctionnalités
+
+- Génération automatique de poèmes basée sur des modèles d'IA avancés.
+- Interface utilisateur conviviale permettant de personnaliser les paramètres de génération de poèmes.
+- Intégration de réactions sonores pour accompagner la lecture des poèmes.
+- Compatible avec une variété de styles poétiques et de langues.
+
+## Technologies utilisées
+
+- [Next.js](https://nextjs.org/) - Framework React pour le rendu côté serveur et le routage.
+- [MistralAI](https://github.com/mistralai/mistralai) - Bibliothèque d'intelligence artificielle pour le traitement du langage naturel.
+
+## Installation
+
+1. Cloner ce dépôt sur votre machine locale.
+2. Installer les dépendances avec la commande `yarn`.
+3. Configurer les variables d'environnement en créant un fichier `.env` à la racine du projet et en y ajoutant les valeurs nécessaires.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+MISTRAL_API_KEY = YOUR_API_KEY
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Utilisation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Exécuter l'application en mode développement avec la commande `yarn run dev`.
+2. Accéder à l'application dans votre navigateur à l'adresse `http://localhost:3000`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributions
 
-## Learn More
+Les contributions sont les bienvenues ! Si vous souhaitez contribuer à Baudel-AI-re, veuillez ouvrir une nouvelle issue pour discuter des changements que vous souhaitez apporter.
 
-To learn more about Next.js, take a look at the following resources:
+## Licence
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ce projet est sous licence MIT. Pour plus d'informations, veuillez consulter le fichier [LICENSE](LICENSE).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Auteurs
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# baudelAIre
+- [Augustin Briolon](https://august1.dev/)
+- [Thomas Aubert](https://github.com/Nicoalz)
+- [Nicolas Bordeaux](https://github.com/N0rooo)

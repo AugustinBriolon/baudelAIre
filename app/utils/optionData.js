@@ -42,7 +42,7 @@ export const lenght = [
   {name: "Quintil (5)", characteristics: "c'est à dire que le poème doit OBLIGATOIREMENT être composé de 5 vers. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème"},
   {name: "Sizain (6)", characteristics: "c'est à dire que le poème doit OBLIGATOIREMENT être composé de 6 ver. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème"},
   {name: "Dizain (10)", characteristics: "c'est à dire que le poème doit OBLIGATOIREMENT être composé de 10 vers. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème"},
-  {name: "Douzain (12)", characteristics: "c'est à dire que le poème doit OBLIGATOIREMENT être composé de 12 vers. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème"},
+  {name: "Alexandrin (12)", characteristics: "c'est à dire que le poème doit OBLIGATOIREMENT être composé de 12 vers. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème"},
   {name: "Sonnet (14)", characteristics: "c'est à dire que le poème doit OBLIGATOIREMENT être composé de 14 vers. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème"},
 ]
 
