@@ -5,35 +5,55 @@ import { TextAnimation } from "@/components/TextAnimation"
 import Select from "@/components/Select"
 import { useCompletion } from "ai/react"
 
-import { langLevel, inspiration, rimeType, lenght, versType } from "./utils/optionData"
+import {  rimeType, lenght, versType } from "./utils/optionData"
 
 export default function Home() {
+	const [rules, setRules] = useState({
+		langLevel: "",
+		inspiration: "",
+		rimeType: "",
+		lenght: "",
+		versType: "",
+	})
+
+	const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
+
+	const systemeInputInspiration = rules.inspiration && `Tu dois écrire comme si tu étais ${rules.inspiration}. `
+
+	const systemeInputRimeType = rules.rimeType && `Le type de rime doit être des rimes ${rules.rimeType}. `
+
+	const systemeInputLenght = rules.lenght && `Le poème doit être de longueur ${rules.lenght}. `
+
+	const systemeInputVersType = rules.versType && `Le type de vers est de type ${rules.versType} `
+
+  const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
+
+  
+
 	const { completion, input, handleInputChange, stop, isLoading, handleSubmit, error } = useCompletion({
 		api: "/api/generate",
 		body: {
-			systemInput:
-				"You are a great French poet. Answer only with a poem followed by the author's name, which you will call 'Baudel-Aire'. Answer in French, unless otherwise indicated. Give nothing other than the poem and the author. Invent a title for your poem. Follow this structure: first the title of the poem, return to the line, then the poem, return to the line and finally the author, who is 'BaudelAIre' and not Charles Baudelaire. Absolutely nothing else",
+			systemInput: `${systemeInputInspiration.length ? systemeInputInspiration : 'Vous êtes un grand poète francais.'}${systemeInputRimeType}${systemeInputLangLevel}${systemeInputLenght} ${systemeInputVersType}Répondez uniquement par un poème suivi du nom de l'auteur que vous appellerez "BaudelAIre". 
+      Répondez en français, sauf indication contraire.
+      Ne donnez rien d'autre que le poème et l'auteur. 
+      Inventez un titre pour votre poème. 
+      Suivez la structure suivante : d'abord le titre du poème, retour à la ligne, puis le poème, retour à la ligne et enfin l'auteur, qui est "BaudelAIre" et non Charles Baudelaire.  
+`,
+      rules: systemeInputRulesArray.join(""),
 		},
 	})
 
-  const [rules, setRules] = useState({
-    langLevel: "",
-    inspiration: "",
-    rimeType: "",
-    lenght: "",
-    versType: ""
-  })
+	const updateRules = (newRules: any) => {
+		setRules((prevRules) => ({
+			...prevRules,
+			...newRules,
+		}))
+	}
 
-  const updateRules = (newRules: any) => {
-    setRules(prevRules => ({
-      ...prevRules,
-      ...newRules
-    }))
-  }
-    
+
 	const [langLevel, setLangLevel] = useState(["Soutenu", "Courant", "Familier", "Argot", "Vulgaire"])
 
-	const [inspiration, setInspiration] = useState(["Charles Baudelaire", "Victor Hugo", "Arthur Rimbaud", "Paul Verlaine", "Guillaume Apollinaire", "Alfred de Musset", "Paul Eluard", "Louis Aragon", "André Breton", "Robert Desnos", "Jacques Prévert"])
+	const [inspiration, setInspiration] = useState(["Charles Baudelaire", "Victor Hugo", "Arthur Rimbaud", "Paul Verlaine", "Guillaume Apollinaire", "Alfred de Musset", "Paul Eluard", "Louis Aragon", "André Breton", "Robert Desnos", "Jacques Prévert", "le rappeur JUL"])
 
 	return (
 		<main className="flex min-h-screen w-full flex-col items-center justify-start py-16 bg-white px-4">
@@ -63,12 +83,12 @@ export default function Home() {
 							</button>
 						</div>
 						<div className="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
-              <Select label="Niveau de langue" data={langLevel} setData={updateRules} name="langLevel" />
-              <Select label="Inspiration" data={inspiration} setData={updateRules} name="inspiration" />
-              <Select label="Type de rime" data={rimeType} setData={updateRules} name="rimeType" />
-              <Select label="Longueur" data={lenght} setData={updateRules} name="lenght" />
-              <Select label="Type de vers" data={versType} setData={updateRules} name="versType" />
-            </div>
+							<Select label="Niveau de langue" data={langLevel} setData={updateRules} name="langLevel" />
+							<Select label="Inspiration" data={inspiration} setData={updateRules} name="inspiration" />
+							<Select label="Type de rime" data={rimeType} setData={updateRules} name="rimeType" />
+							<Select label="Longueur" data={lenght} setData={updateRules} name="lenght" />
+							<Select label="Type de vers" data={versType} setData={updateRules} name="versType" />
+						</div>
 					</form>
 
 					<TextAnimation output={completion} isLoading={isLoading} />
@@ -76,5 +96,4 @@ export default function Home() {
 			</div>
 		</main>
 	)
-
 }
