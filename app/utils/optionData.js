@@ -21,22 +21,25 @@ export const inspiration = [
 ]
 
 export const rimeType = [
-  "Suivie",
-  "Croisée",
-  "Embrassée"
+  "Suivie (AABB)",
+  "Croisée (ABAB)",
+  "Embrassée (ABBA)"
 ]
 
 export const lenght = [
-  "Court",
-  "Moyen",
-  "Long"
+  "Tercet (3)",
+  "Quatrain (4)",
+  "Quintil (5)",
+  "Sizain (6)",
+  "Dizain (10)",
+  "Douzain (12)",
+  "Sonnet (14)"
 ]
 
 export const versType = [
-  "Pentasyllabes",
-  "Hexasyllabes",
-  "Heptasyllabes",
-  "Octosyllabes",
-  "Décasyllabes",
-  "Alexandrins"
+  "Pentasyllabes (5)",
+  "Hexasyllabes (6)",
+  "Octosyllabes (8)",
+  "Décasyllabes (10)",
+  "Alexandrins (12)"
 ]
