@@ -35,7 +35,7 @@ export default function Home() {
 		api: "/api/generate",
 		body: {
 			systemInput: `${
-				systemeInputInspiration.length ? systemeInputInspiration : "Vous êtes un grand poète francais."
+				systemeInputInspiration?.length ? systemeInputInspiration : "Vous êtes un grand poète francais."
 			}${systemeInputRimeType}${systemeInputLangLevel}${systemeInputLenght} ${systemeInputVersType}Répondez uniquement par un poème suivi du nom de l'auteur que vous appellerez "BaudelAIre". Ne rajoute rien après le nom de l'auteur, aucune explication ni rien d'autre. Ne numérote pas les vers ni les lignes ni rien. Répondez en français, sauf indication contraire. Ne donnez rien d'autre que le poème et l'auteur. Inventez un titre pour votre poème. Suivez la structure suivante : d'abord le titre du poème, retour à la ligne, puis le poème, retour à la ligne et enfin l'auteur, qui est "BaudelAIre" et non Charles Baudelaire. Vérifie bien que tu as choisi le bon nombre de vers pour ton poème. Ne donne pas d'explications supplémetaire à la fin, donne l'auteur et ensuite arrête de parler.
 `,
 			rules: systemeInputRulesArray.join(""),
