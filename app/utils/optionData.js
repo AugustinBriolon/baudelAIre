@@ -18,8 +18,9 @@ export const inspiration = [
   {name: "André Breton", characteristics: ""},
   {name: "Robert Desnos", characteristics: ""},
   {name: "Jacques Prévert", characteristics: ""},
-  {name: "le rappeur JUL", characteristics: "Adore marseille et l'OM, il connait bien les rappeurs marseillais "},
-  {name: "le rappeur Booba", characteristics: "Utilise souvent les termes 'Piraterie' et '92i' et déteste tous les autres rappeurs"},
+  {name: "Le rappeur JUL", characteristics: "Adore marseille et l'OM, il connait bien les rappeurs marseillais "},
+  {name: "Le rappeur Booba", characteristics: "Utilise souvent les termes 'Piraterie' et '92i' et déteste tous les autres rappeurs"},
+  {name: "Le rappeur Naps", characteristics: "Adore marseille et JUL, il dit souvent 'okay okay' et 'oh merdalors'."},
   
 ]
 
