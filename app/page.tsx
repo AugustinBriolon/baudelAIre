@@ -10,20 +10,27 @@ import Select from "@/components/Select"
 import { rimeType, lenght, versType, inspiration, langLevel, temperatureType } from "./utils/optionData"
 
 export default function Home() {
-  const [rules, setRules] = useState({
-    langLevel: "",
-    inspiration: { name: "", characteristics: "" },
-    rimeType: { name: "", characteristics: "" },
-    lenght: { name: "", characteristics: "" },
-    versType: { name: "", characteristics: "" },
-    temperatureType: ""
-  })
-  const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
-  const systemeInputInspiration = rules.inspiration.name && `Tu dois écrire comme si tu étais ${rules.inspiration.name}. ${rules.inspiration.characteristics}. `
-  const systemeInputRimeType = rules.rimeType.name && `Tu dois absolument faire des rimes ${rules.rimeType.name}, ${rules.rimeType.characteristics}. `
-  const systemeInputLenght = rules.lenght.name && `Le poème doit être de longueur ${rules.lenght.name}, ${rules.lenght.characteristics}. `
-  const systemeInputVersType = rules.versType.name && `Le type de vers est de type ${rules.versType.name}, ${rules.versType.characteristics}. `
-  const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
+	const [rules, setRules] = useState({
+		langLevel: "",
+		inspiration: {name: "", characteristics: ""},
+		rimeType: {name: "", characteristics: ""},
+		lenght: {name: "", characteristics: ""},
+		versType: {name: "", characteristics: ""},
+    temperatureType: "1"
+	})
+
+	const systemeInputLangLevel = rules.langLevel && `Le niveau de langue doit être un niveau de langue ${rules.langLevel}. `
+
+	const systemeInputInspiration = rules.inspiration.name && `Tu dois écrire comme si tu étais ${rules.inspiration.name}. ${rules.inspiration.characteristics}. `
+
+	const systemeInputRimeType = rules.rimeType.name && `Tu dois absolument faire des rimes ${rules.rimeType.name}, ${rules.rimeType.characteristics}. `
+
+	const systemeInputLenght = rules.lenght.name && `Le poème doit être de longueur ${rules.lenght.name}, ${rules.lenght.characteristics}. `
+
+	const systemeInputVersType = rules.versType.name && `Le type de vers est de type ${rules.versType.name}, ${rules.versType.characteristics}. `
+
+	const systemeInputRulesArray = [systemeInputLangLevel, systemeInputInspiration, systemeInputRimeType, systemeInputLenght, systemeInputVersType]
+
 
 
   const { completion, input, handleInputChange, stop, isLoading, handleSubmit, error } = useCompletion({
