@@ -41,7 +41,7 @@ export default function Home() {
       <div className="w-full max-w-xl flex flex-col items-center gap-8">
         <div className="flex flex-col items-center gap-2">
           <h1 className="bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-5xl font-bold text-transparent md:text-7xl">
-            baudel<span className="text-blue-500">AI</span>re
+            baudel<span className="text-blue-500">AI</span>re<span className="text-blue-500">.</span>
           </h1>
           <p className="text-center text-gray-500 [text-wrap:balance] md:text-xl">Générateur de poème grâce à l&apos;<span className="font-bold">Intelligence Artificielle</span>.</p>
         </div>
@@ -57,7 +57,7 @@ export default function Home() {
                 <span className="sr-only">Envoyer</span>
               </button>
             </div>
-            <div className="w-full flex flex-wrap items-center justify-between gap-2">
+            <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-4">
               <Select label="Niveau de langue" data={langLevel} setData={updateRules} name="langLevel" />
               <Select label="Inspiration" data={inspiration} setData={updateRules} name="inspiration" />
               <Select label="Type de rime" data={rimeType} setData={updateRules} name="rimeType" />
