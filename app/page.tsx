@@ -92,7 +92,7 @@ export default function Home() {
               <Select label="Niveau de langue" data={langLevel} setData={updateRules} name="langLevel" />
               <Select label="Inspiration" data={inspiration} setData={updateRules} name="inspiration" />
               <Select label="Longueur" data={lenght} setData={updateRules} name="lenght" />
-              <Select label="Température" data={temperatureType} setData={updateRules} name="temperatureType" />
+              <Select label="Diversité des réponses" data={temperatureType} setData={updateRules} name="temperatureType" />
               <Select label="Type de rime" data={rimeType} setData={updateRules} name="rimeType" disabled />
               <Select label="Type de vers" data={versType} setData={updateRules} name="versType" disabled />
             </div>
