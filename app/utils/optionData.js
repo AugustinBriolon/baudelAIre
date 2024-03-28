@@ -24,6 +24,12 @@ export const inspiration = [
   
 ]
 
+export const temperatureType = [
+  '0',
+  '0.5',
+  '1',
+]
+
 export const rimeType = [
   {name: "Suivie (AABB)", characteristics: "c'est à dire que les rimes se suivent simplement par groupe de deux. Le premier et le deuxième vers riment ensemble avec le même son, et le troisième et le quatrième riment ensemble avec le même son"},
   {name: "Croisée (ABAB)", characteristics: "c'est à dire que les rimes sont construites dans une alternance de deux par deux. Le premier et le troisième vers riment ensemble avec le même son, et le deuxième et le quatrième riment ensemble  avec le même son  "},
