@@ -50,5 +50,5 @@ Ce projet est sous licence MIT. Pour plus d'informations, veuillez consulter le 
 ## Auteurs
 
 - [Augustin Briolon](https://august1.dev/)
-- [Thomas Aubert](https://github.com/Nicoalz)
-- [Nicolas Bordeaux](https://github.com/N0rooo)
+- [Nicolas Bordeaux](https://github.com/Nicoalz)
+- [Thomas Aubert](https://github.com/N0rooo)
