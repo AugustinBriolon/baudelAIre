@@ -45,7 +45,7 @@ Les contributions sont les bienvenues ! Si vous souhaitez contribuer à Baudel-A
 
 ## Licence
 
-Ce projet est sous licence MIT. Pour plus d'informations, veuillez consulter le fichier [LICENSE](LICENSE).
+Ce projet est sous licence MIT.
 
 ## Auteurs
 
